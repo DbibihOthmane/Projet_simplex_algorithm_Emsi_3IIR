@@ -1,0 +1,178 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 2px solid black;
+    font:
+      16px "Open Sans",
+      Helvetica,
+      Arial,
+      sans-serif;
+    height: 250px;
+    width: 500px; /* Set table width */
+    max-width: 600px; /* Set maximum width for responsiveness */
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+         
+}
+
+.container_of_all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-container {
+    max-width: 600px; /* Adjust the maximum width of the container */
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  text-align: center;
+  border: 1px solid black;
+  padding: 4px 6px;
+}
+
+th {
+  vertical-align: bottom;
+}
+
+.variable_hors_base {
+  background-color: rgba(0, 60, 4, 1); /* Define the color for highlighted cells */
+  animation-name: variable_hors_base_animation;
+  animation-duration: 5s; /* Duration of the animation */
+  animation-iteration-count: infinite;
+}
+
+@keyframes variable_hors_base_animation {
+  0% { background-color: white; } /* Starting color */
+  50% { background-color: rgba(0, 60, 4, 1); } /* Middle color (optional) */
+  100% { background-color:white; } /* Ending color (same as starting color) */
+}
+
+.variable_de_base {
+  background-color: rgba(137, 0, 0, 1);
+  animation-name: variable_de_base_animation;
+  animation-duration: 5s; /* Duration of the animation */
+  animation-iteration-count: infinite;
+}
+
+@keyframes variable_de_base_animation {
+  0% { background-color: rgba(137, 0, 0, 1); } /* Starting color */
+  50% { background-color: white; } /* Middle color (optional) */
+  100% { background-color: rgba(137, 0, 0, 1); } /* Ending color (same as starting color) */
+}
+
+p {
+  
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+
+.article {
+  letter-spacing: 2px;
+}
+
+.result-container {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 100vh; /* Set container height to 100% of viewport height */
+}
+
+input {
+  width: 45px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+
+.glow-on-hover {
+  margin-left: 11px;
+  width: 150;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+.margin-top-button {
+  margin-top: 11px;
+}
+.glow-on-hover:before {
+  content: '';
+  /*background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);*/
+  background: linear-gradient(90deg, rgba(170, 170, 154, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(203, 198, 198, 1) 15%, rgba(165, 161, 167, 1) 30%, rgba(123, 116, 116, 1) 50%, rgba(63, 58, 58, 1) 70%, rgba(117, 0, 0, 1) 85%, rgba(60, 0, 0, 1) 100%);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}

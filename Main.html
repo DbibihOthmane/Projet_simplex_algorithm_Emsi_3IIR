@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="simplex.css">
+</head>
+<body>
+    <script src="Main.js"></script>
+    <script src="simplex.js"></script>
+    
+    <!--
+    <button id="guide_button" class="glow-on-hover" type="button" onclick="show_guide()">Click here to remove User Guide</button>
+    
+        <p id="article_text" class="article">Guide d'utilisation : <br>
+            <br>
+            Exemple : <br>
+            <br>
+            Z = 2x1 + 3x2 <br>
+            &#123;3x1 + 5x2 &lt;= 29 <br>
+            &#123;2x1 + x2 &lt;= 10 <br>
+            <br>
+            
+            Etape 1 : tu peux entrer ces données au programme ! <br>
+            
+            <br>
+            1 -> Entrez le nombre de variables : 2 ( puisqu'on a x1 et x2 ) <br>
+            <br>
+            2 -> Entrer le nombre de contraintes : 2 ( puisqu'on a 2 contraintes ) <br>
+            <br>
+            3-> Entrez les coefficients : pour x1, x2 c'est evident ( 2, 3 ), <br>
+            <br>
+                pour les autres coefficients on doit les prendre à partir des contraintes. <br>
+                ( 3, 5, 29 ) 3x1 + 5x2 <= 29<br>
+                ( 2, 1, 10 ) 2x1 + 1x2 <= 10<br>
+            <br>
+            4-> Tu verras le résultat de chaque itérations , avec une animation indicante <br>
+                les variables de base en rouge , et les variables hors base en vert. <br>
+            <br>
+            5-> Si tu fais le test avec l'exemple au-dessus ,le resultat final sera : Z = 18 , x1 = 3, x2 = 4 ! <br>
+            </p>
+            
+
+            
+    
+
+    
+    
+        <br> -->
+<div id ="container_total" class="container_of_all">
+    <div id="nbr_variable_container">
+        <label for="nombre_variablesX">Combien de variables dans la fonction ?:</label>
+        <input type="number" id="nombre_variablesX" required>
+        <button class="glow-on-hover" type="button" onclick="prendre_variables()">Submit</button>
+    </div>
+    
+    
+    <div id="nbr_contraintes_container">
+        <label for="nombre_contraintes">Entrez le nombre de contraintes:</label>
+        <input type="number" id="nombre_contraintes" required>
+        <button class="glow-on-hover" type="button" onclick="contraintes()">Submit</button>
+        <!-- <button class="glow-on-hover" type="button" onclick="print_coeff()">print coeff</button> -->
+    
+    </div>
+    
+    <div id="inputContainer"></div>
+    <div id = "contraintesContainer"></div>
+
+    <div id="button_simplex">
+        <button class="glow-on-hover margin-top-button" type="button" onclick="do_simplex(); clean_home();">Simplex algorithm</button>
+    </div>
+</div>
+    <div id="result-container"></div>
+    <script>
+        
+        function do_simplex() {
+            const c = coeff_x_fonction_inputs();
+            const b = constantes_contraintes();
+    
+            const matrix = coeff_x_contraintes_inputs();
+
+            const simplex = new Simplex(matrix, b, c);
+            simplex.CalculateSimplex();
+        } 
+    </script>
+    
+
+    
+</body>
+</html>
