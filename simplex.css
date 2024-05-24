@@ -53,7 +53,10 @@ th {
   animation-duration: 5s; /* Duration of the animation */
   animation-iteration-count: infinite;
 }
-
+p:last-of-type, p:nth-last-of-type(2) {
+  color: red;
+  background: black;
+}
 @keyframes variable_hors_base_animation {
   0% { background-color: white; } /* Starting color */
   50% { background-color: rgba(0, 60, 4, 1); } /* Middle color (optional) */
